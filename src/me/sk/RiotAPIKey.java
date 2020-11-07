@@ -1,13 +1,13 @@
 package me.sk;
 
 public class RiotAPIKey {
-    private String riotAPIKey;
+    private static String riotAPIKey;
 
     public RiotAPIKey() {
-        this.riotAPIKey = "RiotAPIKey here :)";
+        this.riotAPIKey = "Your Riot API Key here :)";
     }
 
-    public String getRiotAPIKey() {
+    public static String getRiotAPIKey() {
         return riotAPIKey;
     }
 }

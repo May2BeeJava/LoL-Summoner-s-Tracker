@@ -16,6 +16,7 @@ public class EnterNickname extends JFrame implements ActionListener {
     private JButton goNext = new JButton("Potwierdź");
     private Region[] serwery = {Region.BRAZIL, Region.EUROPE_NORTH_EAST, Region.EUROPE_WEST, Region.JAPAN, Region.KOREA, Region.LATIN_AMERICA_NORTH, Region.LATIN_AMERICA_SOUTH, Region.NORTH_AMERICA, Region.OCEANIA, Region.RUSSIA, Region.TURKEY};
     private JList jList = new JList(serwery);
+    private RiotAPIKey riotAPIKey = new RiotAPIKey();
 
     public EnterNickname() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,7 +25,7 @@ public class EnterNickname extends JFrame implements ActionListener {
         setTitle("LoL Summoner Spells Tracker");
         setLayout(new FlowLayout());
 
-        Orianna.setRiotAPIKey(new RiotAPIKey().getRiotAPIKey());
+        Orianna.setRiotAPIKey(RiotAPIKey.getRiotAPIKey());
 
         init();
     }
@@ -54,9 +55,11 @@ public class EnterNickname extends JFrame implements ActionListener {
             if (!jList.isSelectionEmpty()) {
                 if (e.getSource().equals(goNext)) {
                     Orianna.setDefaultRegion((Region) jList.getSelectedValue());
-                    if (Summoner.named(nickname.getText()).get().getCurrentMatch().exists()) {
-                        goNext(nickname.getText());
-                        setVisible(false);
+                    if (Summoner.named(nickname.getText()).get().exists()) {
+                        if (Summoner.named(nickname.getText()).get().getCurrentMatch().exists()) {
+                            goNext(nickname.getText());
+                            setVisible(false);
+                        }
                     }
                 }
             }
