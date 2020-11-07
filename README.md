@@ -8,4 +8,4 @@ The program will check enemy champions and their summoner's spells, so you can c
 This tool is in early alpha version, so only basic functionality works. It works only on Summoner's Rift and only on real players (sorry bots).
 You might be confused by the order of players in the tool, but later I will try to change it, based on their positions.
 
-You need to compile it by yourself with your own Developer API Key (https://developer.riotgames.com/) in RiotAPIKey.java file or use my generated .exe file.
+You need to compile it by yourself with your own Developer API Key (https://developer.riotgames.com/) in RiotAPIKey.java.
